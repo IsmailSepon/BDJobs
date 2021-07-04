@@ -40,13 +40,13 @@ class JobsAdapter (
         holder.recyclerviewJobBinding.singleJob = jobs!![position]
         val maxSalary : String = jobs!![position]!!.maxSalary.toString()
         val minSalary : String = jobs!![position]!!.minSalary.toString()
-        val featured : Boolean? = jobs!![position]!!.isFeatured
+      //  val featured : Boolean? = jobs!![position]!!.isFeatured
 
         salary( holder.recyclerviewJobBinding.textView5, maxSalary, minSalary)
 
-        if (featured == true){
-            featured(holder.recyclerviewJobBinding.cardview)
-        }
+//        if (featured == true){
+//            featured(holder.recyclerviewJobBinding.cardview)
+//        }
 
 
 
