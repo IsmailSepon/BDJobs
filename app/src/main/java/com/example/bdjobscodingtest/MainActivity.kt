@@ -1,12 +1,15 @@
 package com.example.bdjobscodingtest
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.bdjobscodingtest.adapter.JobsAdapter
+import com.example.bdjobscodingtest.blanketsDistributation.BlanketsDistributation
 import com.example.bdjobscodingtest.factory.JobViewModelFactory
 import com.example.bdjobscodingtest.network.ApiService
 import com.example.bdjobscodingtest.network.NetworkConnectionInterceptor
@@ -32,6 +35,11 @@ class MainActivity : AppCompatActivity(), KodeinAware {
 
 
         getJob()
+
+
+        fab.setOnClickListener(View.OnClickListener {
+            startActivity(Intent(this@MainActivity, BlanketsDistributation::class.java))
+        })
 
     }
 
