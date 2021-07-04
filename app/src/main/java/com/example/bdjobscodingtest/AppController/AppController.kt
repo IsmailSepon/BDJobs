@@ -1,6 +1,7 @@
 package com.example.bdjobscodingtest.AppController
 
 import android.app.Application
+import com.example.bdjobscodingtest.factory.JobViewModelFactory
 import com.example.bdjobscodingtest.network.ApiService
 import com.example.bdjobscodingtest.network.NetworkConnectionInterceptor
 import com.example.bdjobscodingtest.repository.JobRepository
@@ -29,6 +30,7 @@ class AppController  : Application(), KodeinAware {
         bind() from singleton { NetworkConnectionInterceptor(instance()) }
         bind() from singleton { ApiService(instance()) }
         bind() from singleton { JobRepository(instance()) }
+        bind() from provider { JobViewModelFactory(instance()) }
         bind() from provider { GettingJobViewModel(instance()) }
 
 
