@@ -20,8 +20,6 @@ import org.kodein.di.generic.instance
 
 class MainActivity : AppCompatActivity(), KodeinAware {
 
-    //  private lateinit var factory : JobViewModelFactory //by  instance()
-
     override val kodein by kodein()
     private  val factory : JobViewModelFactory by  instance()
 
@@ -35,20 +33,13 @@ class MainActivity : AppCompatActivity(), KodeinAware {
 
         getJob()
 
-
-
     }
 
     private  fun getJob() {
 
-//        val networkConnectionInterceptor = NetworkConnectionInterceptor(this)
-//        val api = ApiService(networkConnectionInterceptor)
-//        val repository = JobRepository(api)
-//        factory = JobViewModelFactory(repository)
-
-
         viewmodel = ViewModelProviders.of(this, factory).get(GettingJobViewModel::class.java)
         viewmodel.getJObList()
+
         viewmodel.joblist.observe(this, Observer { jobs ->
 
             Log.e("response", jobs.message.toString())
@@ -59,12 +50,7 @@ class MainActivity : AppCompatActivity(), KodeinAware {
                 it.setHasFixedSize(true)
                 it.adapter = JobsAdapter(jobs.data, this)
             }
-
-
-
         })
-
-
 
 
     }
