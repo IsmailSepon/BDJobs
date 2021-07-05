@@ -6,7 +6,10 @@ import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
 import com.example.bdjobscodingtest.R
 import kotlinx.android.synthetic.main.activity_blankets_distributation.*
-
+/**
+ * Created by MD ISMAIL HOSSAIN SEPON on 04-Jul-21.
+ * ismailhossainsepon@gmail.com
+ */
 class BlanketsDistributation : AppCompatActivity() {
 
     val list = ArrayList<Int>()
