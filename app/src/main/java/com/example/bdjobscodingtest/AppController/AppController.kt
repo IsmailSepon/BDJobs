@@ -1,6 +1,8 @@
 package com.example.bdjobscodingtest.AppController
 
 import android.app.Application
+import com.example.bdjobscodingtest.doodleLtd.factory.DoodleViewModelFactory
+import com.example.bdjobscodingtest.doodleLtd.viewmodel.DoodleViewModel
 import com.example.bdjobscodingtest.factory.JobViewModelFactory
 import com.example.bdjobscodingtest.network.ApiService
 import com.example.bdjobscodingtest.network.NetworkConnectionInterceptor
@@ -32,6 +34,10 @@ class AppController  : Application(), KodeinAware {
         bind() from singleton { JobRepository(instance()) }
         bind() from provider { JobViewModelFactory(instance()) }
         bind() from provider { GettingJobViewModel(instance()) }
+
+
+        bind() from provider { DoodleViewModelFactory(instance()) }
+        bind() from provider { DoodleViewModel(instance()) }
 
 
     }

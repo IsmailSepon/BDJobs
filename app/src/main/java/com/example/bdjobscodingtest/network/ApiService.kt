@@ -1,5 +1,6 @@
 package com.example.bdjobscodingtest.network
 
+import com.example.bdjobscodingtest.doodleLtd.pojo.DoodleResponse
 import com.example.bdjobscodingtest.pojo.JobResponse
 import okhttp3.OkHttpClient
 import retrofit2.Response
@@ -20,6 +21,12 @@ interface ApiService {
 
 
 
+
+    @GET("get_categories")
+    suspend fun getDoodleList() : Response<DoodleResponse>
+
+
+
     companion object{
         operator fun invoke(
             networkConnectionInterceptor: NetworkConnectionInterceptor
@@ -32,7 +39,8 @@ interface ApiService {
 
             return Retrofit.Builder()
                 .client(okkHttpclient)
-                .baseUrl("http://corporate3.bdjobs.com/interviewtest/")
+                .baseUrl("https://www.test.api.liker.com/")
+                //.baseUrl("http://corporate3.bdjobs.com/interviewtest/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
                 .create(ApiService::class.java)

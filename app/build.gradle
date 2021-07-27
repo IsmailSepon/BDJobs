@@ -148,4 +148,9 @@ dependencies {
 
     implementation 'com.github.bumptech.glide:glide:4.10.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.10.0'
+
+
+    // expended recyclerview
+    implementation 'com.thoughtbot:expandablerecyclerview:1.4'
+    implementation 'com.thoughtbot:expandablecheckrecyclerview:1.4'
 }
