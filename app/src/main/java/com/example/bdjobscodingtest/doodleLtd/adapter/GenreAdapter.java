@@ -5,12 +5,13 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.bdjobscodingtest.R;
+import com.example.bdjobscodingtest.doodleLtd.pojo.CategoriesItem;
 import com.thoughtbot.expandablerecyclerview.ExpandableRecyclerViewAdapter;
 import com.thoughtbot.expandablerecyclerview.models.ExpandableGroup;
 import java.util.List;
 
 public class GenreAdapter extends ExpandableRecyclerViewAdapter<GenreViewHolder, ArtistViewHolder> {
-
+ // val categories: List<CategoriesItem?>? = null
   public GenreAdapter(List<? extends ExpandableGroup> groups) {
     super(groups);
   }

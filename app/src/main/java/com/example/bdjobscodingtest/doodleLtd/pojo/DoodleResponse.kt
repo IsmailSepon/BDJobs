@@ -1,6 +1,8 @@
 package com.example.bdjobscodingtest.doodleLtd.pojo
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
 data class DoodleResponse(
 
@@ -8,14 +10,15 @@ data class DoodleResponse(
 	val categories: List<CategoriesItem?>? = null
 )
 
+@Parcelize
 data class SubcatgItem(
 
 	@field:SerializedName("sub_category_id")
-	val subCategoryId: String? = null,
+	var subCategoryId: String? = null,
 
 	@field:SerializedName("sub_category_name")
-	val subCategoryName: String? = null
-)
+	var subCategoryName: String? = null
+) : Parcelable
 
 data class CategoriesItem(
 

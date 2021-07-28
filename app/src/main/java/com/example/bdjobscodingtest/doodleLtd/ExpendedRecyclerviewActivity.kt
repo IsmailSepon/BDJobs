@@ -6,10 +6,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.bdjobscodingtest.doodleLtd.adapters.Continent
 import com.example.bdjobscodingtest.R
 import com.example.bdjobscodingtest.doodleLtd.adapter.GenreAdapter
 import com.example.bdjobscodingtest.doodleLtd.adapter.GenreDataFactory.makeGenres
+import com.example.bdjobscodingtest.doodleLtd.adapters.DoodleAdapter
 import com.example.bdjobscodingtest.doodleLtd.factory.DoodleViewModelFactory
+import com.example.bdjobscodingtest.doodleLtd.pojo.SubcatgItem
 import com.example.bdjobscodingtest.doodleLtd.viewmodel.DoodleViewModel
 import kotlinx.android.synthetic.main.activity_expended_recyclerview.*
 import org.kodein.di.KodeinAware
@@ -37,25 +40,54 @@ class ExpendedRecyclerviewActivity : AppCompatActivity(), KodeinAware {
 
         viewmodel = ViewModelProviders.of(this, factory).get(DoodleViewModel::class.java)
         viewmodel.getDoodleList()
-        viewmodel.doodleList.observe(this, Observer { jobs ->
+//        viewmodel.doodleList.observe(this, Observer { jobs ->
+//
+//            Log.e("response", jobs.categories?.size.toString())
+//
+//
+//
+//
+//
+//
+// //           Log.e("response", jobs.data!!.size.toString())
+////            jobs_recyclerview.also {
+////                it.layoutManager  = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+////                it.setHasFixedSize(true)
+////                it.adapter = JobsAdapter(jobs.data, this)
+////            }
+//
+//
+//        })
 
-            Log.e("response", jobs.categories?.size.toString())
 
+        adapter = GenreAdapter(makeGenres())
+        recycler_view.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        recycler_view.adapter = adapter
 
-            adapter = GenreAdapter(makeGenres())
-            recycler_view.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-            recycler_view.adapter = adapter
+//            val continents = ArrayList<Continent>()
+//
+//            val list = ArrayList<SubcatgItem>()
+//            val item = SubcatgItem()
+//            item.subCategoryId = "1"
+//            item.subCategoryName = "hello"
+//
+//
+//            list.add(item)
+//            list.add(item)
+//            list.add(item)
+//
+//
+//            val continent = Continent("Asia",list)
+//
+//            continents.add(continent)
+//            continents.add(continent)
+//            continents.add(continent)
+//
+//            val adapter1 = DoodleAdapter(continents)
+//
+//            recycler_view.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+//            recycler_view.adapter = adapter1
 
-            val layoutManager = LinearLayoutManager(this)
- //           Log.e("response", jobs.data!!.size.toString())
-//            jobs_recyclerview.also {
-//                it.layoutManager  = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-//                it.setHasFixedSize(true)
-//                it.adapter = JobsAdapter(jobs.data, this)
-//            }
-
-
-        })
 
 
     }
